@@ -8,6 +8,11 @@ const ping = require('minecraft-server-util');
 
 bot.on('ready', () => {
     console.log('ezBot is online!')
+bot.on('message', message=>{
+    if(message.content === "clown"){
+        message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
+    }
+})
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
 setInterval(function(){
