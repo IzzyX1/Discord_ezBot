@@ -13,6 +13,11 @@ bot.on('message', message=>{
         message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
     }
 })
+bot.on('message', message=>{
+    if(message.content === "nani"){
+        message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
+    }
+})
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
 setInterval(function(){
