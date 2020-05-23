@@ -11,10 +11,10 @@ bot.on('ready', () => {
 bot.on('message', message=>{
     if(message.content === "clown"){
         message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
-let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
-setInterval(function(){
-    bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-}, 1000)    
+        let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
+    setInterval(function(){
+        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
+        }, 1000)    
     }
 })
 bot.on('message', message=>{
