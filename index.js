@@ -18,6 +18,10 @@ bot.on('message', message=>{
     if(message.content === "nani"){
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
     }
+    bot.on('message', message=>{
+        if(message.content === "clown"){
+            message.reply('https://thecomeback.com/wp-content/uploads/2016/05/ronald_mcdonald.jpg');
+        }
 });
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
