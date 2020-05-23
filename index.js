@@ -104,14 +104,14 @@ bot.on('message', message =>{
     })
         break;
 //--------------------------------------------------------------------------------------------------------
-        case 'meme':
+        case 'dankmeme':
             image(message);
         break;
 }
 });
 function image(message){
     var options = {
-        url: "https://images.google.com/?gws_rd=ssl" + "meme",
+        url: "https://images.google.com/?gws_rd=ssl" + "dankmeme",
         method: "GET",
         headers: {
             "Accept": "text/html",
