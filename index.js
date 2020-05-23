@@ -76,7 +76,7 @@ bot.on('message', message =>{
         case 'ban':
             if(!args[1]) message.channel.send('You need to specify a person!')
             const usertoban = message.mentions.members.first();
-            if(!usertoban.permissions.has("BAN_MEMBERS")){
+            if(!message.member.permissions.has("BAN_MEMBERS")){
                 return message.reply(`Sorry you don’t have permissions to use this command!`);
             }
             if(usertoban ){
