@@ -8,7 +8,7 @@ const ping = require('minecraft-server-util');
 
 bot.on('ready', () => {
     console.log('ezBot is online!')
-    let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
+    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
     setInterval(function(){
         bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
         }, 10000)    
@@ -23,6 +23,10 @@ bot.on('message', message=>{
     if(message.content === "clown"){
         message.reply('https://www.marketingmag.com.au/wp-content/uploads/2016/10/ronald-mcdonald.jpeg');
     }});
+    bot.on('message', message=>{
+        if(message.content === "poggers"){
+            message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
+        }});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
 // ----------------------------------------------------------------------------------------------
@@ -54,29 +58,37 @@ bot.on('message', message =>{
         case 'kick':
             if(!args[1]) message.channel.send('You need to specify a person!')
             const usertokick = message.mentions.members.first();
+            if(!usertokick.permissions.has("KICK_MEMBERS")){
+                return message.reply(`Sorry you don’t have permissions to use this command!`);
+            }
             if(usertokick ){
                 usertokick .kick('You were kicked from the server!').then(() =>{
                     message.reply(`Successfuly kicked ${usertokick.user.tag}`);
-            }).catch(err =>{
-                message.reply('I was unable to kick the member.');
-                console.log(err);
-            });
-        } else {
-            message.reply("That user isn\'t in this guild!")
-        }
+                }).catch(err =>{
+                    message.reply('I was unable to kick the member.');
+                    console.log(err);
+                });
+            } else {
+                message.reply("That user isn\'t in this guild!")
+            }
         break;
 //--------------------------------- BAN COMMAND -----------------------------------------------            
         case 'ban':
             if(!args[1]) message.channel.send('You need to specify a person!')
             const usertoban = message.mentions.members.first();
+            if(!usertoban.permissions.has("BAN_MEMBERS")){
+                return message.reply(`Sorry you don’t have permissions to use this command!`);
+            }
             if(usertoban ){
-                usertoban .ban({ression: 'You were banned from the server!'}).then(() =>{
-                    message.reply(`Successfully banned ${usertoban.user.tag}`)
-            });
-        } else {
-            message.reply("That user isn\'t in this guild!")
-        }
-
+                usertoban .ban('You were banned from the server!').then(() =>{
+                    message.reply(`Successfuly banned ${usertokick.user.tag}`);
+                }).catch(err =>{
+                    message.reply('I was unable to ban the member.');
+                    console.log(err);
+                });
+            } else {
+                message.reply("That user isn\'t in this guild!")
+            }
         break;
 //--------------------------------- REACTION COMMANDS ------------------------------------------            
         case 'clown':
