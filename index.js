@@ -19,6 +19,10 @@ bot.on('message', message=>{
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
     }
 });
+bot.on('message', message=>{
+    if(message.content === "clown"){
+        message.reply('https://www.marketingmag.com.au/wp-content/uploads/2016/10/ronald-mcdonald.jpeg');
+    }});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
 // ----------------------------------------------------------------------------------------------
