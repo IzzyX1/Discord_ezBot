@@ -8,23 +8,23 @@ const ping = require('minecraft-server-util');
 
 bot.on('ready', () => {
     console.log('ezBot is online!')
-bot.on('message', message=>{
-    if(message.content === "clown"){
-        message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
-        let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
+    let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
     setInterval(function(){
         bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-        }, 1000)    
+        }, 10000)    
     }
-})
+);
 bot.on('message', message=>{
     if(message.content === "nani"){
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
     }
-})
+    bot.on('message', message=>{
+        if(message.content === "clown"){
+            message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
+}}
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
-})
+)})
 // ----------------------------------------------------------------------------------------------
 // ------------------------------------ COMMANDS BELOW ------------------------------------------
 bot.on('message', message =>{
