@@ -58,7 +58,7 @@ bot.on('message', message =>{
         case 'kick':
             if(!args[1]) message.channel.send('You need to specify a person!')
             const usertokick = message.mentions.members.first();
-            if(!usertokick.permissions.has("KICK_MEMBERS")){
+            if(!message.member.permissions.has("KICK_MEMBERS")){
                 return message.reply(`Sorry you don’t have permissions to use this command!`);
             }
             if(usertokick ){
