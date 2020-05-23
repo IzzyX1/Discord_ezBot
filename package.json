@@ -1,0 +1,17 @@
+{
+  "name": "discordezbot",
+  "version": "1.0.0",
+  "description": "ezBot for Discord with awesome features!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ez",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.2.0",
+    "minecraft-server-util": "^1.3.0",
+    "request": "^2.88.2"
+  }
+}
