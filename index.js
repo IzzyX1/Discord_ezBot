@@ -18,9 +18,9 @@ bot.on('message', message=>{
     if(message.content === "nani"){
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
     }
-    bot.on('message', message=>{
-        if(message.content === "clown"){
-            message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
+bot.on('message', message=>{
+    if(message.content === "clown"){
+        message.reply('https://www.thesun.co.uk/wp-content/uploads/2016/10/23097226jpg-js272868302.jpg?w=670');
 }}
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
