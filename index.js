@@ -14,7 +14,7 @@ bot.on('message', message=>{
 let activities = ["$help", `${bot.guilds.cache.size} Guilds`];
 setInterval(function(){
     bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-}, 1000)
+}, 1000)    
     }
 })
 bot.on('message', message=>{
