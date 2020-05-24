@@ -62,9 +62,14 @@ bot.on('message', message=>{
         }});
     bot.on('message', message=>{
         if(message.content === "$minesweeperhelp"){
-            message.reply('**Commands:** $minsweeper1, $minesweeper2, $minesweeper3');
-            message.reply('❔ **Why is the game generator slow?**')
-            message.reply('This is because the bot has to avoid the anti-spam, that is why there is a delay in generation, the game is not broken!')
+            const embed = new Discord.MessageEmbed()
+            .setTitle('Minesweeper Help:')
+            .addField('Commands:', '$minesweeper1, $minesweeper2, $minesweeper3')
+            .addField('❔ Why is the game generation slow?', 'To avoid the anti-spam.')
+            .setColor(0xFF0000)
+            .setThumbnail(message.author.avatarURL)
+            .setFooter('Thank you for using ezBot!')
+            message.channel.send(embed);
         }});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
