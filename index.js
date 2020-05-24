@@ -5,6 +5,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 const ping = require('minecraft-server-util');
 const usedCommandRecently = new Set();
+const AntiSpam = require('discord-anti-spam');
 let kickEmbed = new Discord.MessageEmbed()
 .setColor('#801b1b')
 .setTitle('Warning!')
