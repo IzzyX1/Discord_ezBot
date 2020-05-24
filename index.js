@@ -34,6 +34,18 @@ bot.on('ready', () => {
     }
 );
 bot.on('message', message=>{
+    if(message.content === "$antispamhelp"){
+        const embed = new Discord.MessageEmbed()
+        .setTitle('Anti-Spam Help:')
+        .addField('⚠️ Warn:', '3 messages in a row will result in a warning.')
+        .addField('🦿 Kick:', '5 messages in a row will result in a kick.')
+        .addField('🔨 Ban:', '7 messages in a row or return & spam after a kick will result in a ban.')
+        .setColor(0x6a0dad)
+        .setThumbnail(message.author.avatarURL)
+        .setFooter('Thank you for using ezBot!')
+        message.channel.send(embed);
+    }});
+bot.on('message', message=>{
     if(message.content === "nani"){
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
     }
@@ -116,18 +128,6 @@ bot.on('message', message=>{
         if(message.content === "ez"){
             message.reply('ez');
     }
-    bot.on('message', message=>{
-        if(message.content === "$antispamhelp"){
-            const embed = new Discord.MessageEmbed()
-            .setTitle('Anti-Spam Help:')
-            .addField('⚠️ Warn:', '3 messages in a row will result in a warning.')
-            .addField('🦿 Kick:', '5 messages in a row will result in a kick.')
-            .addField('🔨 Ban:', '7 messages in a row or return & spam after a kick will result in a ban.')
-            .setColor(0x6a0dad)
-            .setThumbnail(message.author.avatarURL)
-            .setFooter('Thank you for using ezBot!')
-            message.channel.send(embed);
-        }});
 });
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
