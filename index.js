@@ -91,7 +91,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC, Minesweeper1,2,3 sizes vary.')
+            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC, minesweeperhelp')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
