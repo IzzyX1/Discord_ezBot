@@ -186,13 +186,13 @@ bot.on('message', message =>{
         break;
         case 'poggers':
             if(usedCommandRecently.has(message.author.id)){
-                message.reply('You cannot use this command for another 30 seconds!')
+                message.reply('You cannot use this command for another 15 seconds!')
             } else{
                 message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
                 usedCommandRecently.add(message.author.id);
                 setTimeout(() =>{
                  usedCommandRecently.delete(message.author.id);
-                }, 10000);
+                }, 15000);
             }
 
             
