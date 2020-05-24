@@ -38,7 +38,7 @@ bot.on('message', message=>{
         }});
     bot.on('message', message=>{
         if(message.content === "$minesweeper2"){
-            message.channel.send('**Minesweeper 6x6 with 8 bombs.')
+            message.channel.send('**Minesweeper 6x6 with 8 bombs.**')
             message.channel.send('||1️⃣||||1️⃣||||1️⃣||||0️⃣||||1️⃣||||💥||');
             message.channel.send('||2️⃣||||💥||||2️⃣||||0️⃣||||1️⃣||||1️⃣||');
             message.channel.send('||3️⃣||||💥||||2️⃣||||💥||||0️⃣||||0️⃣||');
@@ -48,7 +48,7 @@ bot.on('message', message=>{
         }});
     bot.on('message', message=>{
         if(message.content === "$minesweeper3"){
-            message.channel.send('**Minesweeper 10x10 with 15 bombs.')
+            message.channel.send('**Minesweeper 10x10 with 15 bombs.**')
             message.channel.send('||0️⃣||||0️⃣||||0️⃣||||1️⃣||||💥||||2️⃣||||💥||||2️⃣||||💥||||1️⃣||');
             message.channel.send('||0️⃣||||0️⃣||||0️⃣||||1️⃣||||1️⃣||||2️⃣||||1️⃣||||2️⃣||||1️⃣||||1️⃣||');
             message.channel.send('||0️⃣||||0️⃣||||1️⃣||||💥||||1️⃣||||0️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||');
