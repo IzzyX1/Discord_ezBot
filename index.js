@@ -111,6 +111,9 @@ bot.on('message', message =>{
 //-------------------------------------- CLEAR COMMAND -----------------------------------------        
         case 'clear':
             if(!args[1]) return message.reply('Error, please define a second arg.')
+            if(!message.member.permissions.has("MANAGE_MESSAGES")){
+                return message.reply(`Sorry you don't have permissions to use this command!`)
+            }
             message.channel.bulkDelete(args[1]);
         break;
 //-------------------------------------- HELP COMMAND ------------------------------------------        
