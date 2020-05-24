@@ -97,6 +97,11 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         }});
+    bot.on('message', message=>{
+        if(message.content === "ez"){
+            message.reply('ez');
+    }
+});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
 // ----------------------------------------------------------------------------------------------
