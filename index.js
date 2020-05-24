@@ -87,7 +87,7 @@ bot.on('message', message=>{
              message.channel.send(embed);
         }});
     bot.on('message', message=>{
-        if(message.content === "$gifhelp"){
+        if(message.content === "$mchelp"){
             const embed = new Discord.MessageEmbed()
             .setTitle('mc Help:')
             .addField('Usage:', '$mc <Server IP> e.g hypixel.net <Port> e.g 25565')
