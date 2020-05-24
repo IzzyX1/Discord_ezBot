@@ -5,6 +5,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 const ping = require('minecraft-server-util');
 const usedCommandRecently = new Set();
+//----------------------------------------- ANTI-SPAM CONFIGURATION -----------------------------------------
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
     warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
@@ -24,7 +25,8 @@ const antiSpam = new AntiSpam({
     // And many more options... See the documentation.
 });
 bot.on('message', (message) => antiSpam.message(message));
-//-----------------------------------------------------------------------------------------------
+//----------------------------------------- ANTI-SPAM CONFIGURATION ---------------------------------------
+//----------------------------------------- BOT USER ACTIVITY ---------------------------------------------
 bot.on('ready', () => {
     console.log('ezBot is online!')
     let activities = ["$help", `${bot.guilds.cache.size} Servers`];
@@ -33,6 +35,8 @@ bot.on('ready', () => {
         }, 10000)    
     }
 );
+//----------------------------------------- BOT USER ACTIVITY -----------------------------------------
+//----------------------------------------- ANTI-SPAM HELP ------------------------------------------
 bot.on('message', message=>{
     if(message.content === "$antispamhelp"){
         const embed = new Discord.MessageEmbed()
@@ -45,6 +49,7 @@ bot.on('message', message=>{
         .setFooter('Thank you for using ezBot!')
         message.channel.send(embed);
     }});
+//----------------------------------------- GIF MESSAGE REPLIES ----------------------------------
 bot.on('message', message=>{
     if(message.content === "nani"){
         message.reply('https://media1.tenor.com/images/a079c945e1ce01bcaccbd6edcee8d305/tenor.gif');
@@ -58,6 +63,7 @@ bot.on('message', message=>{
         if(message.content === "yoshi"){
             message.reply('http://www.superluigibros.com/images/supermariokart_gifs/yoshi.gif');
         }});
+//------------------------------------------- MINESWEEPER GAMES ---------------------------------------
     bot.on('message', message=>{
         if(message.content === "$minesweeper1"){
             message.channel.send('**Minesweeper 5x5 with 4 bombs.**')
@@ -91,6 +97,7 @@ bot.on('message', message=>{
             message.channel.send('||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||||0️⃣||');
             message.channel.send('||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||')
         }});
+//----------------------------------------------------- MINESWEEPER HELP -------------------------------------
     bot.on('message', message=>{
         if(message.content === "$minesweeperhelp"){
             const embed = new Discord.MessageEmbed()
@@ -102,6 +109,7 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         }});
+//----------------------------------------------------- GIF HELP --------------------------------------------
     bot.on('message', message=>{
         if(message.content === "$gifhelp"){
             const embed = new Discord.MessageEmbed()
@@ -113,6 +121,7 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
              message.channel.send(embed);
         }});
+//---------------------------------------------------- MC HELP ------------------------------------------------
     bot.on('message', message=>{
         if(message.content === "$mchelp"){
             const embed = new Discord.MessageEmbed()
@@ -124,13 +133,12 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         }});
+//---------------------------------------------------- RANDOM EZ FEATURE -------------------------------------- 
     bot.on('message', message=>{
         if(message.content === "ez"){
             message.reply('ez');
     }
 });
-//---------------------------------- BOT USER ACTIVITY ------------------------------------------    
-//---------------------------------- BOT USER ACTIVITY ------------------------------------------
 // ----------------------------------------------------------------------------------------------
 // ------------------------------------ COMMANDS BELOW ------------------------------------------
 bot.on('message', message =>{
@@ -152,7 +160,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, clear, mc, minesweeperhelp, gifhelp, mchelp')
+            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -214,6 +222,7 @@ bot.on('message', message =>{
         case 'rip':
             message.react('🙏');
         break;
+//------------------------------------------------------ COOL DOWN GIF POGGERS COMMAND ------------------------------------        
         case 'poggers':
             if(usedCommandRecently.has(message.author.id)){
                 message.reply('You cannot use this command for another 30 seconds!')
@@ -221,11 +230,9 @@ bot.on('message', message =>{
                 message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
                 usedCommandRecently.add(message.author.id);
                 setTimeout(() =>{
-                 usedCommandRecently.delete(message.author.id);
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
                 }, 30000);
-            }
-
-            
+            }    
         break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
@@ -243,7 +250,7 @@ bot.on('message', message =>{
                 message.channel.send(Embed);
     })
         break;
-//--------------------------------------------------------------------------------------------------------
+//----------------------------------------- MEME COMMAND ------------------------------------
         case 'meme':
             image(message);
         break;
@@ -275,3 +282,10 @@ function image(message){
 }
 // ---------------------------------- COMMANDS ABOVE ----------------------------------------------
 bot.login(process.env.token);
+//------------------------------------- ADDITIONAL NOTES: -----------------------------------------
+// PACKAGES TO INSTALLED:
+// npm i minecraft-server-util
+// npm install cherio --save
+// npm install request --save
+// npm install discord-anti-spam
+// THIS CODE WAS DEVELOPED BY EZ, FOR THE EZBOT FOR DISCORD. 
