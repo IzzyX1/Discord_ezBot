@@ -24,7 +24,7 @@ const antiSpam = new AntiSpam({
     // And many more options... See the documentation.
 });
 bot.on("message", async (message) => {
-  AntiSpam.message(message
+  antiSpam.message(message
 )})
 //-----------------------------------------------------------------------------------------------
 bot.on('ready', () => {
