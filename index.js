@@ -28,6 +28,10 @@ bot.on('message', message=>{
             message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
         }});
     bot.on('message', message=>{
+        if(message.content === "yoshi"){
+            message.reply('http://www.superluigibros.com/images/supermariokart_gifs/yoshi.gif');
+        }});
+    bot.on('message', message=>{
         if(message.content === "$minesweeper1"){
             message.channel.send('**Minesweeper 5x5 with 4 bombs.**')
             message.channel.send('||0️⃣||||1️⃣||||💥||||1️⃣||||0️⃣||');
@@ -71,6 +75,28 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         }});
+    bot.on('message', message=>{
+        if(message.content === "$gifhelp"){
+            const embed = new Discord.MessageEmbed()
+            .setTitle('GIF Help:')
+            .addField('Reponse to Text:', 'nani, clown, poggers, yoshi')
+            .addField('❔ What does this do?', 'It will reply with a funny GIF if you say those messages in chat!')
+            .setColor(0xFFFF00)
+            .setThumbnail(message.author.avatarURL)
+            .setFooter('Thank you for using ezBot!')
+             message.channel.send(embed);
+        }});
+    bot.on('message', message=>{
+        if(message.content === "$gifhelp"){
+            const embed = new Discord.MessageEmbed()
+            .setTitle('mc Help:')
+            .addField('Usage:', '$mc <Server IP> e.g hypixel.net <Port> e.g 25565')
+            .addField('❔ What does this do?', 'It will give you the version, and other stats of an mc server.')
+            .setColor(0xFFA500)
+            .setThumbnail(message.author.avatarURL)
+            .setFooter('Thank you for using ezBot!')
+            message.channel.send(embed);
+        }});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
 // ----------------------------------------------------------------------------------------------
@@ -91,7 +117,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC, minesweeperhelp')
+            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC, minesweeperhelp, gifhelp, mchelp')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
