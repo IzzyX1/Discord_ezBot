@@ -4,6 +4,7 @@ const PREFIX = '$';
 const cheerio = require('cheerio');
 const request = require('request');
 const ping = require('minecraft-server-util');
+const usedCommandRecently = new Set();
 //-----------------------------------------------------------------------------------------------
 
 bot.on('ready', () => {
@@ -23,10 +24,6 @@ bot.on('message', message=>{
     if(message.content === "clown"){
         message.reply('https://www.marketingmag.com.au/wp-content/uploads/2016/10/ronald-mcdonald.jpeg');
     }});
-    bot.on('message', message=>{
-        if(message.content === "poggers"){
-            message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
-        }});
     bot.on('message', message=>{
         if(message.content === "yoshi"){
             message.reply('http://www.superluigibros.com/images/supermariokart_gifs/yoshi.gif');
@@ -186,6 +183,20 @@ bot.on('message', message =>{
         break;
         case 'rip':
             message.react('🙏');
+        break;
+        case 'poggers':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 30 seconds!')
+            } else{
+                message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
+
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id);
+                }, 10000)
+            }
+
+            
         break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
