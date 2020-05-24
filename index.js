@@ -23,9 +23,7 @@ const antiSpam = new AntiSpam({
     ignoredUsers: [], // Array of User IDs that get ignored.
     // And many more options... See the documentation.
 });
-bot.on("message", async (message) => {
-  antiSpam.message(message
-)})
+bot.on('message', (message) => antiSpam.message(message));
 //-----------------------------------------------------------------------------------------------
 bot.on('ready', () => {
     console.log('ezBot is online!')
