@@ -29,11 +29,36 @@ bot.on('message', message=>{
         }});
     bot.on('message', message=>{
         if(message.content === "$minesweeper1"){
+            message.channel.send('**Minesweeper 5x5 with 4 bombs.**')
             message.channel.send('||0️⃣||||1️⃣||||💥||||1️⃣||||0️⃣||');
             message.channel.send('||0️⃣||||1️⃣||||1️⃣||||1️⃣||||0️⃣||');
             message.channel.send('||0️⃣||||0️⃣||||0️⃣||||1️⃣||||1️⃣||');
             message.channel.send('||1️⃣||||1️⃣||||1️⃣||||1️⃣||||💥||');
             message.channel.send('||1️⃣||||💥||||1️⃣||||1️⃣||||1️⃣||');
+        }});
+    bot.on('message', message=>{
+        if(message.content === "$minesweeper2"){
+            message.channel.send('**Minesweeper 6x6 with 8 bombs.')
+            message.channel.send('||1️⃣||||1️⃣||||1️⃣||||0️⃣||||1️⃣||||💥||');
+            message.channel.send('||2️⃣||||💥||||2️⃣||||0️⃣||||1️⃣||||1️⃣||');
+            message.channel.send('||3️⃣||||💥||||2️⃣||||💥||||0️⃣||||0️⃣||');
+            message.channel.send('||💥||||2️⃣||||1️⃣||||💥||||0️⃣||||0️⃣||');
+            message.channel.send('||1️⃣||||1️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||💥||||0️⃣||||0️⃣||||0️⃣||');
+        }});
+    bot.on('message', message=>{
+        if(message.content === "$minesweeper3"){
+            message.channel.send('**Minesweeper 10x10 with 15 bombs.')
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||1️⃣||||💥||||2️⃣||||💥||||2️⃣||||💥||||1️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||1️⃣||||1️⃣||||2️⃣||||1️⃣||||2️⃣||||1️⃣||||1️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||1️⃣||||💥||||1️⃣||||0️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||');
+            message.channel.send('||💥||||💥||||1️⃣||||💥||||1️⃣||||💥||||0️⃣||||0️⃣||||0️⃣||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||1️⃣||||1️⃣||||1️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||0️⃣||||1️⃣||||1️⃣||||1️⃣||||0️⃣||||0️⃣||||0️⃣||');
+            message.channel.send('||0️⃣||||💥||||0️⃣||||0️⃣||||1️⃣||||💥||||1️⃣||||0️⃣||||💥||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||💥||||1️⃣||||1️⃣||||1️⃣||||0️⃣||||0️⃣||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||💥||||0️⃣||||0️⃣||');
+            message.channel.send('||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||||0️⃣||')
         }});
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------    
 //---------------------------------- BOT USER ACTIVITY ------------------------------------------
@@ -55,7 +80,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC')
+            .addField('Commands:', 'Ban, Kick, Meme, Clown, Dead, RIP, Cri, Omg, Thonk, Clear, MC, Minesweeper1,2,3 sizes vary.')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
