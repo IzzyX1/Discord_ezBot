@@ -27,30 +27,23 @@ const antiSpam = new AntiSpam({
 bot.on('message', (message) => antiSpam.message(message)); // Anti-Spam Function.
 //----------------------------------------- ANTI-SPAM CONFIGURATION ---------------------------------------
 //----------------------------------------- BOT USER ACTIVITY ---------------------------------------------
-bot.on('guildCreate', async () => {
-    console.log('ezBot has joined another guild.')
-    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
-    setInterval(function(){
-        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-        }, 10000)    
-    })
-//------------------------- Above is when the bot has joined a guild. ----------------------------------
-bot.on('guildDelete', async () => {
-    console.log('ezBot has left another guild.')
-    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
-    setInterval(function(){
-        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-        }, 10000)
-})
-//--------------------------- Above is when the bot has left a guild. -----------------------------------
-bot.on('ready', () => {
-    console.log('ezBot is online!')
-    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
-    setInterval(function(){
-        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-            }, 10000)    
-        }
-    ); 
+bot.on("ready", () => {
+    // This event will run if the bot starts, and logs in, successfully.
+    console.log(`ezBot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+    bot.user.setActivity(`In ${client.guilds.size} Servers | $help`);
+  });
+  
+  bot.on("guildCreate", guild => {
+    // This event triggers when the bot joins a guild.
+    console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+    bot.user.setActivity(`In ${client.guilds.size} Servers | $help`);
+  });
+  
+  bot.on("guildDelete", guild => {
+    // this event triggers when the bot is removed from a guild.
+    console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    bot.user.setActivity(`In ${client.guilds.size} Servers | $help`);
+  });
 //----------------------------------------- BOT USER ACTIVITY -----------------------------------------
 //----------------------------------------- ANTI-SPAM HELP ------------------------------------------
 bot.on('message', message=>{
