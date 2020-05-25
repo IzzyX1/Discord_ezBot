@@ -147,11 +147,6 @@ bot.on('message', message=>{
         if(message.content === "ez"){
             message.reply('ez');
     }
-});
-bot.on('message', message=>{
-    if(message.content === "no u"){
-        message.reply('**UNO REVERSE** https://pics.me.me/12-56-pm-nou-omattel-the-homemade-uno-cards-be-like-60502937.png');
-}
 }); // Added just to make the bot look like ez, since it's called ezBot! :D
 // ----------------------------------------------------------------------------------------------
 // ------------------------------------ COMMANDS BELOW ------------------------------------------
@@ -246,7 +241,17 @@ bot.on('message', message =>{
                 setTimeout(() =>{
                  usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
                 }, 30000);
-            }    
+            }
+        case 'nou':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 20 seconds!')
+                } else{
+                    message.reply('**UNO REVERSE** https://pics.me.me/12-56-pm-nou-omattel-the-homemade-uno-cards-be-like-60502937.png');
+                    usedCommandRecently.add(message.author.id);
+                    setTimeout(() =>{
+                        usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                    }, 20000);
+                }    
         break;
         case 'asd':
             if(usedCommandRecently.has(message.author.id)){
