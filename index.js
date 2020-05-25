@@ -243,6 +243,19 @@ bot.on('message', message =>{
                 }, 30000);
             }    
         break;
+        case 'asd':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 20 seconds!')
+            } else{
+                message.react('🇦');
+                message.react('🇸');
+                message.react('🇩');
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 20000);
+            }    
+        break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
             if(!args[1]) return message.channel.send('You must type a minecraft server IP!')
