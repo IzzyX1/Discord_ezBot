@@ -30,7 +30,7 @@ bot.on('message', (message) => antiSpam.message(message)); // Anti-Spam Function
 bot.on("ready", () => {
     // This event will run if the bot starts, and logs in, successfully.
     console.log(`ezBot has started, with ${bot.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`); 
-    bot.user.setActivity(`In ${bot.user.guilds.cache.size} Servers | $help`);
+    bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`);
   });
   
   bot.on("guildCreate", guild => {
