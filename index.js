@@ -30,19 +30,19 @@ bot.on('message', (message) => antiSpam.message(message)); // Anti-Spam Function
 bot.on("ready", () => {
     // This event will run if the bot starts, and logs in, successfully.
     console.log(`ezBot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`); 
-    bot.user.setActivity(`In ${bot.users.guilds.cache.size} Servers | $help`);
+    bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`);
   });
   
   bot.on("guildCreate", guild => {
     // This event triggers when the bot joins a guild.
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-    bot.user.setActivity(`In ${bot.users.guilds.cache.size} Servers | $help`);
+    bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`);
   });
   
   bot.on("guildDelete", guild => {
     // this event triggers when the bot is removed from a guild.
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    bot.user.setActivity(`In ${bot.users.guilds.cache.size} Servers | $help`);
+    bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`);
   });
 //----------------------------------------- BOT USER ACTIVITY -----------------------------------------
 //----------------------------------------- ANTI-SPAM HELP ------------------------------------------
