@@ -34,6 +34,15 @@ bot.on('guildCreate', async () => {
         bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
         }, 10000)    
     })
+//------------------------- Above is when the bot has joined a guild. ----------------------------------
+bot.on('guildDelete', async () => {
+    console.log('ezBot has left another guild.')
+    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
+    setInterval(function(){
+        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
+        }, 10000)
+})
+//--------------------------- Above is when the bot has left a guild. -----------------------------------
 bot.on('ready', () => {
     console.log('ezBot is online!')
     let activities = ["$help", `${bot.guilds.cache.size} Servers`];
