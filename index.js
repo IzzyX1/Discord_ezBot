@@ -35,6 +35,13 @@ bot.on('ready', () => {
         }, 10000)    
     }
 );
+bot.on('guildCreate', async () => {
+    console.log('ezBot has joined another guild.')
+    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
+    setInterval(function(){
+        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
+        }, 10000)    
+    })
 //----------------------------------------- BOT USER ACTIVITY -----------------------------------------
 //----------------------------------------- ANTI-SPAM HELP ------------------------------------------
 bot.on('message', message=>{
