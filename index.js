@@ -147,6 +147,11 @@ bot.on('message', message=>{
         if(message.content === "ez"){
             message.reply('ez');
     }
+});
+bot.on('message', message=>{
+    if(message.content === "no u"){
+        message.reply('**UNO REVERSE** https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5ef95353-9f74-45ba-a400-5494417ca165/ddmcdqs-ecd2b865-fa25-4550-adf0-f5962af5484f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNWVmOTUzNTMtOWY3NC00NWJhLWE0MDAtNTQ5NDQxN2NhMTY1XC9kZG1jZHFzLWVjZDJiODY1LWZhMjUtNDU1MC1hZGYwLWY1OTYyYWY1NDg0Zi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.JASe6g-Qonkdhm7GQ5H-qEyH-bM7sh6lPp60apDiUUo');
+}
 }); // Added just to make the bot look like ez, since it's called ezBot! :D
 // ----------------------------------------------------------------------------------------------
 // ------------------------------------ COMMANDS BELOW ------------------------------------------
