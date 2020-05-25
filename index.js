@@ -24,7 +24,7 @@ const antiSpam = new AntiSpam({
     ignoredUsers: [], // Array of User IDs that get ignored.
     // And many more options... See the documentation.
 });
-bot.on('message', (message) => antiSpam.message(message));
+bot.on('message', (message) => antiSpam.message(message)); // Anti-Spam Function.
 //----------------------------------------- ANTI-SPAM CONFIGURATION ---------------------------------------
 //----------------------------------------- BOT USER ACTIVITY ---------------------------------------------
 bot.on('ready', () => {
@@ -138,7 +138,7 @@ bot.on('message', message=>{
         if(message.content === "ez"){
             message.reply('ez');
     }
-});
+}); // Added just to make the bot look like ez, since it's called ezBot! :D
 // ----------------------------------------------------------------------------------------------
 // ------------------------------------ COMMANDS BELOW ------------------------------------------
 bot.on('message', message =>{
