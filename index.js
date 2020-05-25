@@ -27,14 +27,6 @@ const antiSpam = new AntiSpam({
 bot.on('message', (message) => antiSpam.message(message)); // Anti-Spam Function.
 //----------------------------------------- ANTI-SPAM CONFIGURATION ---------------------------------------
 //----------------------------------------- BOT USER ACTIVITY ---------------------------------------------
-bot.on('ready', () => {
-    console.log('ezBot is online!')
-    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
-    setInterval(function(){
-        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
-        }, 10000)    
-    }
-);
 bot.on('guildCreate', async () => {
     console.log('ezBot has joined another guild.')
     let activities = ["$help", `${bot.guilds.cache.size} Servers`];
@@ -42,6 +34,14 @@ bot.on('guildCreate', async () => {
         bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
         }, 10000)    
     })
+bot.on('ready', () => {
+    console.log('ezBot is online!')
+    let activities = ["$help", `${bot.guilds.cache.size} Servers`];
+    setInterval(function(){
+        bot.user.setActivity(activities[Math.floor(Math.random() * activities.length)])
+            }, 10000)    
+        }
+    ); 
 //----------------------------------------- BOT USER ACTIVITY -----------------------------------------
 //----------------------------------------- ANTI-SPAM HELP ------------------------------------------
 bot.on('message', message=>{
