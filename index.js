@@ -169,7 +169,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, nou, flushed, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
+            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, nou, flushed, owo, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -276,6 +276,19 @@ bot.on('message', message =>{
                  usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
                 }, 20000);
             }    
+        break;
+        case 'owo':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+            } else{
+                message.react('🅾️');
+                message.react('🇼');
+                message.react('🇴');
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 15000);
+            }
         break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
