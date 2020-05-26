@@ -142,6 +142,18 @@ bot.on('message', message=>{
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         }});
+        bot.on('message', message=>{
+            if(message.content === "$reactionshelp"){
+                const embed = new Discord.MessageEmbed()
+                .setTitle('Reaction Messages Help:')
+                .addField('Commands:', 'clown, dead, rip, cri, omg, thonk, nou, flushed, owo, liar')
+                .addField('What does this do?', 'This is a cool feature where the bot adds reactions to your commands!')
+                .addField('Support Server:', 'https://discord.gg/ac3KQu2')
+                .setColor(0x00008b)
+                .setThumbnail(message.author.avatarURL)
+                .setFooter('Thank you for using ezBot!')
+                message.channel.send(embed);
+            }});
 //---------------------------------------------------- RANDOM EZ FEATURE -------------------------------------- 
     bot.on('message', message=>{
         if(message.content === "ez"){
@@ -175,17 +187,7 @@ bot.on('message', message =>{
             .setThumbnail(message.author.avatarURL)
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
-        break; 
-        case 'reactionhelp':
-            .setTitle('Reaction Messages Help:')
-            .addField('Commands:', 'clown, dead, rip, cri, omg, thonk, nou, flushed, owo, liar')
-            .addField('What does this do?', 'This is a cool feature where the bot adds reactions to your commands!')
-            .addField('Support Server:', 'https://discord.gg/ac3KQu2')
-            .setColor(0x00008b)
-            .setThumbnail(message.author.avatarURL)
-            .setFooter('Thank you for using ezBot!')
-            message.channel.send(embed);
-        break; 
+        break;
         case 'randomfeatures':
             const embed = new Discord.MessageEmbed()
             .setTitle('Random Features Help:')
