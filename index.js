@@ -232,7 +232,15 @@ bot.on('message', message =>{
             message.react('🙏');
         break;
         case 'flushed':
-            message.react('😳');
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+            } else{
+                message.react('😳');
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 15000);
+            }
         break;
 //------------------------------------------------------ COOL DOWN GIF POGGERS COMMAND ------------------------------------        
         case 'poggers':
