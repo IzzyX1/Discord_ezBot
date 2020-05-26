@@ -177,7 +177,6 @@ bot.on('message', message =>{
             message.channel.send(embed);
         break; 
         case 'reactionhelp':
-            const embed = new Discord.MessageEmbed()
             .setTitle('Reaction Messages Help:')
             .addField('Commands:', 'clown, dead, rip, cri, omg, thonk, nou, flushed, owo, liar')
             .addField('What does this do?', 'This is a cool feature where the bot adds reactions to your commands!')
