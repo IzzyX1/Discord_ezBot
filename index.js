@@ -169,7 +169,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
+            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, nou, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
