@@ -123,7 +123,7 @@ bot.on('message', message=>{
         if(message.content === "$gifhelp"){
             const embed = new Discord.MessageEmbed()
             .setTitle('GIF Help:')
-            .addField('Reponse to Text:', 'nani, clown, poggers, yoshi')
+            .addField('Reponse to Text:', 'nani, poggers, yoshi')
             .addField('❔ What does this do?', 'It will reply with a funny GIF if you say those messages in chat!')
             .setColor(0xFFFF00)
             .setThumbnail(message.author.avatarURL)
@@ -169,13 +169,36 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clown, dead, rip, cri, omg, thonk, nou, flushed, owo, poggers, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp')
+            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionhelp, randomfeatures')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
         break; 
+        case 'reactionhelp':
+            const embed = new Discord.MessageEmbed()
+            .setTitle('Reaction Messages Help:')
+            .addField('Commands:', 'clown, dead, rip, cri, omg, thonk, nou, flushed, owo, liar')
+            .addField('What does this do?', 'This is a cool feature where the bot adds reactions to your commands!')
+            .addField('Support Server:', 'https://discord.gg/ac3KQu2')
+            .setColor(0x00008b)
+            .setThumbnail(message.author.avatarURL)
+            .setFooter('Thank you for using ezBot!')
+            message.channel.send(embed);
+        break; 
+        case 'randomfeatures':
+            const embed = new Discord.MessageEmbed()
+            .setTitle('Random Features Help:')
+            .addField('Commands:', 'clown, nou, nitro, gift')
+            .addField('These random features are...', 'Some cool images that appear if you use these commands!')
+            .addField('Support Server:', 'https://discord.gg/ac3KQu2')
+            .setColor(0xffff00)
+            .setThumbnail(message.author.avatarURL)
+            .setFooter('Thank you for using ezBot!')
+            message.channel.send(embed);
+        break; 
+            
 //------------------------------------ KICK COMMAND -------------------------------------------        
         case 'kick':
             if(!args[1]) message.channel.send('You need to specify a person!')
@@ -242,6 +265,19 @@ bot.on('message', message =>{
                 }, 15000);
             }
         break;
+        case 'liar':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+            } else{
+                message.send.channel('Liar liar pants on fire!')
+                message.react('👖');
+                message.react('🔥')
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 15000);
+            }
+        break;
 //------------------------------------------------------ COOL DOWN GIF POGGERS COMMAND ------------------------------------        
         case 'poggers':
             if(usedCommandRecently.has(message.author.id)){
@@ -289,6 +325,30 @@ bot.on('message', message =>{
                  usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
                 }, 15000);
             }
+        break;
+        case 'nitro':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+                } else{
+                    message.reply('Free Discord Nitro? ;p https://external-preview.redd.it/52nZu7zpt_EE0pJ27CAZABLIP_Evv3XnoFw6dR7Oaho.png?auto=webp&s=8f1a333e7537ef78c0892a1334cfd9c0e944c332');
+                    message.channel.send('**SIKE YOU JUST GOT GNOMED! :D**');
+                    usedCommandRecently.add(message.author.id);
+                    setTimeout(() =>{
+                        usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                    }, 15000);
+                }    
+        break;
+        case 'gift':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+                } else{
+                    message.reply('Here, enjoy your free gift: discord.gift/ytNyKkwxaPEdQcTAx4FVFdDV');
+                    message.channel.send('Yes, that\'s right, free gucci flip flops.')
+                    usedCommandRecently.add(message.author.id);
+                    setTimeout(() =>{
+                        usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                    }, 15000);
+                }    
         break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
