@@ -154,6 +154,18 @@ bot.on('message', message=>{
                 .setFooter('Thank you for using ezBot!')
                 message.channel.send(embed);
             }});
+            bot.on('message', message=>{
+                if(message.content === "$randomfeatures"){
+                    const embed = new Discord.MessageEmbed()
+                    .setTitle('Random Features Help:')
+                    .addField('Commands:', 'clown, nou, nitro, gift')
+                    .addField('These random features are...', 'Some cool images that appear if you use these commands!')
+                    .addField('Support Server:', 'https://discord.gg/ac3KQu2')
+                    .setColor(0xffff00)
+                    .setThumbnail(message.author.avatarURL)
+                    .setFooter('Thank you for using ezBot!')
+                    message.channel.send(embed);
+                }});
 //---------------------------------------------------- RANDOM EZ FEATURE -------------------------------------- 
     bot.on('message', message=>{
         if(message.content === "ez"){
@@ -187,19 +199,7 @@ bot.on('message', message =>{
             .setThumbnail(message.author.avatarURL)
             .setFooter('Thank you for using ezBot!')
             message.channel.send(embed);
-        break;
-        case 'randomfeatures':
-            const embed = new Discord.MessageEmbed()
-            .setTitle('Random Features Help:')
-            .addField('Commands:', 'clown, nou, nitro, gift')
-            .addField('These random features are...', 'Some cool images that appear if you use these commands!')
-            .addField('Support Server:', 'https://discord.gg/ac3KQu2')
-            .setColor(0xffff00)
-            .setThumbnail(message.author.avatarURL)
-            .setFooter('Thank you for using ezBot!')
-            message.channel.send(embed);
-        break; 
-            
+        break;         
 //------------------------------------ KICK COMMAND -------------------------------------------        
         case 'kick':
             if(!args[1]) message.channel.send('You need to specify a person!')
