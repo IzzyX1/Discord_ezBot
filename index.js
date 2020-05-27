@@ -193,7 +193,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionhelp, randomfeatures')
+            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionshelp, randomfeatures')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -270,7 +270,7 @@ bot.on('message', message =>{
             if(usedCommandRecently.has(message.author.id)){
                 message.reply('You cannot use this command for another 15 seconds!')
             } else{
-                message.send.channel('Liar liar pants on fire!')
+                message.channel.send('Liar liar pants on fire!')
                 message.react('👖');
                 message.react('🔥')
                 usedCommandRecently.add(message.author.id);
