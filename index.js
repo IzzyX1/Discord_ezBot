@@ -375,7 +375,7 @@ bot.on('message', message =>{
 });
 function image(message){
     var options = {
-        url: "http://results.dogpile.com/serp?qc=images&q=" + "dankmeme",
+        url: "https://images.google.com/?gws_rd=ssl" + "reddit memes",
         method: "GET",
         headers: {
             "Accept": "text/html",
