@@ -8,9 +8,9 @@ const usedCommandRecently = new Set();
 //----------------------------------------- ANTI-SPAM CONFIGURATION -----------------------------------------
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
-    warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
-    kickThreshold: 5, // Amount of messages sent in a row that will cause a ban.
-    banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
+    warnThreshold: 5, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 6, // Amount of messages sent in a row that will cause a ban.
+    banThreshold: 9, // Amount of messages sent in a row that will cause a ban.
     maxInterval: 5000, // Amount of time (in milliseconds) in which messages are considered spam.
     warnMessage: '{@user}, Please stop spamming.', // Message that will be sent in chat upon warning a user.
     kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
