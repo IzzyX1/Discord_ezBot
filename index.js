@@ -400,9 +400,9 @@ function image(message){
 bot.on('message', message => {
 
     if (message.author.bot) return;
-    if (message.content.indexOf(prefix) !== 0) return;
+    if (message.content.indexOf(PREFIX) !== 0) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
     if (command === 'rps') {
