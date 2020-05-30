@@ -397,7 +397,7 @@ function image(message){
         message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
     });
 }
-client.on('message', message => {
+bot.on('message', message => {
 
     if (message.author.bot) return;
     if (message.content.indexOf(prefix) !== 0) return;
