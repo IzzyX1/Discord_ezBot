@@ -280,16 +280,6 @@ bot.on('message', message =>{
             }
         break;
 //------------------------------------------------------ COOL DOWN GIF POGGERS COMMAND ------------------------------------        
-        case 'poggers':
-            if(usedCommandRecently.has(message.author.id)){
-                message.reply('You cannot use this command for another 30 seconds!')
-            } else{
-                message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
-                usedCommandRecently.add(message.author.id);
-                setTimeout(() =>{
-                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
-                }, 30000);
-            }
         case 'nou':
             if(usedCommandRecently.has(message.author.id)){
                 message.reply('You cannot use this command for another 20 seconds!')
@@ -350,6 +340,17 @@ bot.on('message', message =>{
                         usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
                     }, 15000);
                 }    
+        break;
+        case 'poggers':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 20 seconds!')
+            } else{
+                message.reply('https://media.discordapp.net/attachments/702707570900729919/710178169394823278/POGGERS.gif');
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 20000);
+            }
         break;
 //---------------------------- MC COMMAND -----------------------------------------------------
         case 'mc':
