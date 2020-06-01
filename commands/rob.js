@@ -41,8 +41,9 @@ let embed = new Discord.MessageEmbed()
 .setColor("#00FF00")
 message.channel.send(embed)
 
-db.add(`money_${message.author.id}_${user.id}`, random)
-db.subtract(`money_${message.guild.id}_${user.id}`, random)
+db.subtract(`money_${user.id}`, random)
+db.add(`money_${message.author.id}`, random)
+
   
 };
 }
