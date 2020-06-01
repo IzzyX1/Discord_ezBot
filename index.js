@@ -424,7 +424,6 @@ function image(message){
 // --------------------------------------- ECONOMY -----------------------------------
 const botconfig = require("./botconfig.json");
 const fs = require("fs");
-const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
