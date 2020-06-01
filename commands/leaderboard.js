@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
       let content = "";
 
       for (let i = 0; i < money.length; i++) {
-      let user = bot.users.get(money[i].ID.split('_')[2]).username
+      let user = bot.users.cache.get(money[i].ID.split('_')[2]).username
       content += `${i+1}. ${user} ~ ${money[i].data}\n`
 
       }
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
   let content = "";
 
     for (let i = 0; i < nike.length; i++) {
-      let user = bot.users.get(nike[i].ID.split('_')[2]).username
+      let user = bot.users.cache.get(nike[i].ID.split('_')[2]).username
 
       content += `${i+1}. ${user} ~ ${nike[i].data}\n`
     }
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
     let content = "";
 
     for (let i = 0; i < cars.length; i++) {
-      let user = bot.users.get(cars[i].ID.split('_')[2]).username
+      let user = bot.users.cache.get(cars[i].ID.split('_')[2]).username
       content += `${i+1}. ${user} ~ ${cars[i].data}\n`
    }
 
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args) => {
     let content = "";
 
     for (let i = 0; i < mansions.length; i++) {
-      let user = bot.users.get(mansions[i].ID.split('_')[2]).username
+      let user = bot.users.cache.get(mansions[i].ID.split('_')[2]).username
 
         content += `${i+1}. ${user} ~ ${mansions[i].data}\n`
    }
