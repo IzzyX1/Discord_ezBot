@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(timeEmbed)
       } else {
 
-        let replies = ['Programmer','Builder','Waiter','Busboy','Chief','Mechanic, Developer, Chef, Gamer, YouTuber, Streamer']
+        let replies = ['Programmer','Builder','Waiter','Busboy','Chief','Mechanic']
 
         let result = Math.floor((Math.random() * replies.length));
         let amount = Math.floor(Math.random() * 80) + 1;
