@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
       let content = "";
 
       for (let i = 0; i < money.length; i++) {
-      let user = bot.users.cache.get (money[i].ID.split('_')[2]).username
+      let user = bot.users.cache.get(money[i].ID.split('_')[2]).username
       content += `${i+1}. ${user} ~ ${money[i].data}\n`
 
       }
