@@ -290,6 +290,17 @@ bot.on('message', message =>{
                 }, 15000);
             }
         break;
+        case 'biscuit':
+            if(usedCommandRecently.has(message.author.id)){
+                message.reply('You cannot use this command for another 15 seconds!')
+            } else{
+                message.react('🍪');
+                usedCommandRecently.add(message.author.id);
+                setTimeout(() =>{
+                 usedCommandRecently.delete(message.author.id); // This cooldown was added because of tards in a minecraft server.
+                }, 15000);
+            }
+        break;
 //------------------------------------------------------ COOL DOWN GIF POGGERS COMMAND ------------------------------------        
         case 'nou':
             if(usedCommandRecently.has(message.author.id)){
