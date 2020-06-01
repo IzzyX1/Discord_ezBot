@@ -15,9 +15,9 @@ const antiSpam = new AntiSpam({
     warnMessage: '{@user}, Please stop spamming.', // Message that will be sent in chat upon warning a user.
     kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
     banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
-    maxDuplicatesWarning: 3, // Amount of duplicate messages that trigger a warning.
-    maxDuplicatesKick: 5, // Amount of duplicate messages that trigger a warning.
-    maxDuplicatesBan: 7, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesWarning: 6, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesBan: 14, // Amount of duplicate messages that trigger a warning.
     exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
     ignoreBots: true, // Ignore bot messages.
     verbose: true, // Extended Logs from module.
