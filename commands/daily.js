@@ -15,12 +15,12 @@ module.exports.run = async (bot, message, args) => {
   if (daily !== null && timeout - (Date.now() - daily) > 0) {
     let time = ms(timeout - (Date.now() - daily));
   
-    let timeEmbed = new Discord.RichEmbed()
+    let timeEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setDescription(`❌ You've already collected your daily reward\n\nCollect it again in ${time.hours}h ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
-    let moneyEmbed = new Discord.RichEmbed()
+    let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#00FF00")
   .setDescription(`✅ You've collected your daily reward of ${amount} coins`);
   message.channel.send(moneyEmbed)

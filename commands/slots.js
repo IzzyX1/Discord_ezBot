@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
     let money = parseInt(args[0]);
     let win = false;
 
-    let moneymore = new Discord.RichEmbed()
+    let moneymore = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setDescription(`❌ You are betting more than you have`);
 
-    let moneyhelp = new Discord.RichEmbed()
+    let moneyhelp = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setDescription(`❌ Specify an amount`);
 
@@ -32,13 +32,13 @@ module.exports.run = async (bot, message, args) => {
         win = true;
     }
     if (win) {
-        let slotsEmbed1 = new Discord.RichEmbed()
+        let slotsEmbed1 = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou won ${money} coins`)
             .setColor("#00FF00")
         message.channel.send(slotsEmbed1)
         db.add(`money_${message.guild.id}_${user.id}`, money)
     } else {
-        let slotsEmbed = new Discord.RichEmbed()
+        let slotsEmbed = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lost ${money} coins`)
             .setColor("#ff0000")
         message.channel.send(slotsEmbed)

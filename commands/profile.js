@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
   let newhouse = await db.fetch(`house_${message.guild.id}_${user.id}`)
   if(newhouse === null) newhouse = '0'
 
-  let moneyEmbed = new Discord.RichEmbed()
+  let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#800080")
   .setDescription(`**${user}'s Profile**\n\nPocket: ${money}\nBank: ${bank}\nVIP Status: ${vip}\n\n**Inventory**\n\nSneakers: ${shoes}\nSupercars: ${newcar}\nMansions: ${newhouse}`);
   message.channel.send(moneyEmbed)

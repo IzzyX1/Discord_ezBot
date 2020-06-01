@@ -18,15 +18,15 @@ let moneydb = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
 let random = Math.floor(Math.random() * 37);
 
-let moneyhelp = new Discord.RichEmbed()
+let moneyhelp = new Discord.MessageEmbed()
 .setColor("#ffa500")
 .setDescription(`❌ Specify an amount to gamble | e$roulette <color> <amount>`);
 
-let moneymore = new Discord.RichEmbed()
+let moneymore = new Discord.MessageEmbed()
 .setColor("#ffa500")
 .setDescription(`❌ You are betting more than you have`);
 
-let colorbad = new Discord.RichEmbed()
+let colorbad = new Discord.MessageEmbed()
 .setColor("#ffa500")
 .setDescription(`❌ Specify a color | Red [1.5x] Black [2x] Green [15x]`);
 
@@ -46,7 +46,7 @@ let colorbad = new Discord.RichEmbed()
     if (random == 0 && colour == 2) { // Green
         money *= 15
         db.add(`money_${message.guild.id}_${user.id}`, money)
-        let moneyEmbed1 = new Discord.RichEmbed()
+        let moneyEmbed1 = new Discord.MessageEmbed()
         .setColor("#00FF00")
         .setDescription(`💰🟢 You won ${money} coins\n\nMultiplier: 15x`);
         message.channel.send(moneyEmbed1)
@@ -54,20 +54,20 @@ let colorbad = new Discord.RichEmbed()
     } else if (isOdd(random) && colour == 1) { // Red
         money = parseInt(money * 1.5)
         db.add(`money_${message.guild.id}_${user.id}`, money)
-        let moneyEmbed2 = new Discord.RichEmbed()
+        let moneyEmbed2 = new Discord.MessageEmbed()
         .setColor("#ff0000")
         .setDescription(`💰🔴 You won ${money} coins\n\nMultiplier: 1.5x`);
         message.channel.send(moneyEmbed2)
     } else if (!isOdd(random) && colour == 0) { // Black
         money = parseInt(money * 2)
         db.add(`money_${message.guild.id}_${user.id}`, money)
-        let moneyEmbed3 = new Discord.RichEmbed()
+        let moneyEmbed3 = new Discord.MessageEmbed()
         .setColor("#000000")
         .setDescription(`💰⚫ You won ${money} coins\n\nMultiplier: 2x`);
         message.channel.send(moneyEmbed3)
     } else { // Wrong
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
-        let moneyEmbed4 = new Discord.RichEmbed()
+        let moneyEmbed4 = new Discord.MessageEmbed()
         .setColor("#ff0000")
         .setDescription(`💰❌ You lost ${money} coins\n\nMultiplier: 0x`);
         message.channel.send(moneyEmbed4)

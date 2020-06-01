@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     if(!message.content.startsWith('e$'))return;  
 
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     .setTitle("Economy Help Centre [Prefix: e$]")
     .addField("Economy Commands", "`work` `beg` `balance` `profile` `withdraw` `deposit` `daily` `weekly` `store` `buy` `sell`")
     .addField("Gambling Commmands", "`roulette` `slots`")

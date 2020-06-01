@@ -15,12 +15,12 @@ module.exports.run = async (bot, message, args) => {
   if (beg !== null && timeout - (Date.now() - beg) > 0) {
     let time = ms(timeout - (Date.now() - beg));
   
-    let timeEmbed = new Discord.RichEmbed()
+    let timeEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setDescription(`❌ You've already begged recently\n\nBeg again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
-    let moneyEmbed = new Discord.RichEmbed()
+    let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#00FF00")
   .setDescription(`✅ You've begged and received ${amount} coins`);
   message.channel.send(moneyEmbed)
