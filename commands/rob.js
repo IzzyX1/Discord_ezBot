@@ -42,8 +42,7 @@ let embed = new Discord.MessageEmbed()
 message.channel.send(embed)
 
 db.add(`money_${message.guild.id}_${user.id}`, random)
-db.subtract(`money_${message.guild.id}_${user.id}`, random)
-db.set(`rob_${message.guild.id}_${user.id}`, Date.now())
+db.subtract(`money_${message.author.id}_${user.id}`, random)
   
 };
 }
