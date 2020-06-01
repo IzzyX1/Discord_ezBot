@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
-  if(!message.content.startsWith('e$'))return;
+  if(!message.content.all('e$'))return;
   const embed = new Discord.MessageEmbed()
   .setDescription(`**Input a Leaderboard Option**\n\nCoin Leaderboard: e$leaderboard coins\nFresh Sneakers Leaderboard: e$leaderboard sneakers\nCar Leaderboard: e$leaderboard supercar\nMansion Leaderboard: e$leaderboard mansion`)
   .setColor("#800080")
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   if(!args[0]) return message.channel.send(embed)
 
     if (args[0] == 'coins') {
-      let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data'})
+      let money = db.all(`money_${message.guild.id}`, { sort: '.data'})
       let content = "";
 
       for (let i = 0; i < money.length; i++) {
