@@ -441,11 +441,11 @@ fs.readdir("./commands/", (err, files) => {
   jsfile.forEach((f, i) =>{
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
-    bot.commands.set(props.help.name, props);
-    props.help.aliases.forEach(alias => { 
-      bot.aliases.set(alias, props.help.name);
-  
-  });
+    if (props.help && props.help.name) {
+      bot.commands.set(props.help.name, props);
+    } else {
+      console.error(`file ${f} does not have .help or .help.name property!`);
+  };
 });
 })
 
