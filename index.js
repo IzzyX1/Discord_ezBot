@@ -193,7 +193,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionshelp, randomfeatures')
+            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionshelp, randomfeatures, e$help --> economy help')
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -420,6 +420,66 @@ function image(message){
         message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
     });
 };
+
+// --------------------------------------- ECONOMY -----------------------------------
+const botconfig = require("./botconfig.json");
+const fs = require("fs");
+const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+
+
+fs.readdir("./commands/", (err, files) => {
+
+  if(err) console.log(err);
+  let jsfile = files.filter(f => f.split(".").pop() === "js");
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
+  
+
+  jsfile.forEach((f, i) =>{
+    let props = require(`./commands/${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+    props.help.aliases.forEach(alias => { 
+      bot.aliases.set(alias, props.help.name);
+  
+  });
+});
+})
+
+
+  bot.on("message", async message => {
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+    let prefix = botconfig.prefix
+    let messageArray = message.content.split(" ");
+    let args = message.content.slice(prefix.length).trim().split(/ +/g);
+    let cmd = args.shift().toLowerCase();
+    let commandfile;
+
+    if (bot.commands.has(cmd)) {
+      commandfile = bot.commands.get(cmd);
+  } else if (bot.aliases.has(cmd)) {
+    commandfile = bot.commands.get(bot.aliases.get(cmd));
+  }
+  
+      if (!message.content.startsWith(prefix)) return;
+
+          
+  try {
+    commandfile.run(bot, message, args);
+  
+  } catch (e) {
+  }}
+  )
+
+
+
+
+
 // ---------------------------------- COMMANDS ABOVE ----------------------------------------------
 bot.login(process.env.token);
 //------------------------------------- ADDITIONAL NOTES: -----------------------------------------
