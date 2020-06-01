@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
-
+  if(!message.content.startsWith('e$'))return; 
 
     let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data'})
     let content = "";
