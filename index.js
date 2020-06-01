@@ -50,9 +50,9 @@ bot.on('message', message=>{
     if(message.content === "$antispamhelp"){
         const embed = new Discord.MessageEmbed()
         .setTitle('Anti-Spam Help:')
-        .addField('⚠️ Warn:', '5 messages in a row will result in a warning.')
-        .addField('🦿 Kick:', '7 messages in a row will result in a kick.')
-        .addField('🔨 Ban:', '9 messages in a row or return & spam after a kick will result in a ban.')
+        .addField('⚠️ Warn:', '6 messages in a row will result in a warning.')
+        .addField('🦿 Kick:', '10 messages in a row will result in a kick.')
+        .addField('🔨 Ban:', '14 messages in a row or return & spam after a kick will result in a ban.')
         .setColor(0x6a0dad)
         .setThumbnail(message.author.avatarURL)
         .setFooter('Thank you for using ezBot!')
