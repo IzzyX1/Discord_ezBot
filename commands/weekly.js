@@ -3,7 +3,7 @@ const db = require("quick.db");
 const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => {
-  if(!message.content.startsWith('m!'))return;  
+  if(!message.content.startsWith('e$'))return;  
 
   let user = message.author;
   let timeout = 604800000;
