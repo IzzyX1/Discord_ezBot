@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
   if (bank === null) bank = 0;
 
-  let vip = await db.fetch(`bronze_${message.guild.id}_${user.id}`)
+  let vip = await db.fetch(`vip_${message.guild.id}_${user.id}`)
     if(vip === null) vip = 'None'
     if(vip === true) vip = 'Active'
 
