@@ -166,6 +166,17 @@ bot.on('message', message=>{
                     .setFooter('Thank you for using ezBot!')
                     message.channel.send(embed);
                 }});
+                bot.on('message', message=>{
+                    if(message.content === "$imagehelp"){
+                        const embed = new Discord.MessageEmbed()
+                        .setTitle('Image Commands Help:')
+                        .setDescription("**Commands:**\n\n$anime - Generates a normal anime picture.\n$uwu - Generates a Cute Girl Anime Picture\n$pokemon - Generates a Pokemon Picture.\n$meme - Generates a Dank meme from somewhere on the internet.")
+                        .addField('Support Server:', 'https://discord.gg/ac3KQu2')
+                        .setColor(0xffff00)
+                        .setThumbnail(message.author.avatarURL)
+                        .setFooter('Thank you for using ezBot!')
+                        message.channel.send(embed);
+                    }});
 //---------------------------------------------------- RANDOM EZ FEATURE -------------------------------------- 
     bot.on('message', message=>{
         if(message.content === "ez"){
@@ -193,7 +204,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .addField('Commands:', 'ban, kick, meme, clear, mc, minesweeperhelp, gifhelp, mchelp, antispamhelp, reactionshelp, randomfeatures, e$help --> economy help')
+            .setDescription("**Moderation Commands:**\n\nBan Command: $ban <User> <Reason>\nKick Command: $kick <User> <Reason>\nAnti-Spam Command: $antispamhelp\nClear Command: $clear <number of messages>\n\n**Media Commands:**\n\nImage Commands: $imagehelp\nGIF Commands: $gifhelp\nRandom Features: $randomfeatures\nReaction Commands: $reactionshelp\n\n**Games Commands:**\n\nEconomy Commands: e$help\nMinesweeper Commands: $minesweeperhelp\n\n**Minecraft Command**\n\n $mchelp")
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -390,37 +401,46 @@ bot.on('message', message =>{
                 message.channel.send(Embed);
     })
         break;
-//----------------------------------------- MEME COMMAND ------------------------------------
-        case 'meme':
-            image(message);
+//----------------------------------------- COOM COMMANDS ------------------------------------
+        let array = ["pokemon", "anime", "meme"];
+        if(array.includes(args[1])){
+            image(message, args[1])
+    }
+        case 'anime':
+            image(message, "anime");
         break;
-}
-});
-function image(message){
-    var options = {
-        url: "http://results.dogpile.com/serp?qc=images&q=" + "redditmemes",
-        method: "GET",
-        headers: {
-            "Accept": "text/html",
-            "User-Agent": "Chrome"
-        }
-    };
-    request(options, function(error, response, responseBody) {
-        if (error) {
-            return;
-        }
-        $ = cheerio.load(responseBody);
-        var links = $(".image a.link");
-        var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
-        console.log(urls);
-        if (!urls.length) {
-            return;
-        }
-        // Send result
-        message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
-    });
-};
-
+        case 'meme':
+            image(message, "redditmeme");
+        break;
+        case 'pokemon':
+            image(message, "pokemon");
+        break;
+        case 'uwu':
+            image(message, "cute anime girl");
+        break;
+function image(message, search){
+        var options = {
+            url: "http://results.dogpile.com/serp?qc=images&q=" + search,
+            method: "GET",
+            headers: {
+                "Accept": "text/html",
+                "User-Agent": "Chrome"
+            }
+        };
+        request(options, function(error, response, responseBody) {
+            if (error) {
+                return;
+            }
+            $ = cheerio.load(responseBody);
+            var links = $(".image a.link");
+            var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
+            console.log(urls);
+            if (!urls.length) {
+                return;
+            }
+            // Send result
+            message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
+        })}
 // --------------------------------------- ECONOMY -----------------------------------
 const botconfig = require("./botconfig.json");
 const fs = require("fs");
@@ -473,10 +493,7 @@ fs.readdir("./commands/", (err, files) => {
   
   } catch (e) {
   }}
-  )
-
-
-
+  )}});
 
 
 // ---------------------------------- COMMANDS ABOVE ----------------------------------------------
@@ -488,3 +505,5 @@ bot.login(process.env.token);
 // npm install request --save
 // npm install discord-anti-spam
 // THIS CODE WAS DEVELOPED BY EZ, FOR THE EZBOT FOR DISCORD. 
+// npm install quick.db
+// npm install parse-ms
