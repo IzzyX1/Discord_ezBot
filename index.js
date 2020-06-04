@@ -5,6 +5,10 @@ const cheerio = require('cheerio');
 const request = require('request');
 const ping = require('minecraft-server-util');
 const usedCommandRecently = new Set();
+const botconfig = require("./botconfig.json");
+const fs = require("fs");
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
 //----------------------------------------- ANTI-SPAM CONFIGURATION -----------------------------------------
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
@@ -44,6 +48,51 @@ bot.on("ready", () => {
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`);
   });
+  fs.readdir("./commands/", (err, files) => {
+
+    if(err) console.log(err);
+    let jsfile = files.filter(f => f.split(".").pop() === "js");
+    if(jsfile.length <= 0){
+      console.log("Couldn't find commands.");
+      return;
+    }
+    
+  
+    jsfile.forEach((f, i) =>{
+      let props = require(`./commands/${f}`);
+      console.log(`${f} loaded!`);
+      if (props.help && props.help.name) {
+        bot.commands.set(props.help.name, props);
+      } else {
+        console.error(`file ${f} does not have .help or .help.name property!`);
+    };
+  });
+  })
+  
+  
+    bot.on("message", async message => {
+      if(message.author.bot) return;
+      if(message.channel.type === "dm") return;
+      let prefix = botconfig.prefix
+      let messageArray = message.content.split(" ");
+      let args = message.content.slice(prefix.length).trim().split(/ +/g);
+      let cmd = args.shift().toLowerCase();
+      let commandfile;
+  
+      if (bot.commands.has(cmd)) {
+        commandfile = bot.commands.get(cmd);
+    } else if (bot.aliases.has(cmd)) {
+      commandfile = bot.commands.get(bot.aliases.get(cmd));
+    }
+    
+        if (!message.content.startsWith(prefix)) return;
+  
+            
+    try {
+      commandfile.run(bot, message, args);
+    
+    } catch (e) {
+    }})
 //----------------------------------------- BOT USER ACTIVITY -----------------------------------------
 //----------------------------------------- ANTI-SPAM HELP ------------------------------------------
 bot.on('message', message=>{
@@ -442,58 +491,10 @@ function image(message, search){
             message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
         })}
 // --------------------------------------- ECONOMY -----------------------------------
-const botconfig = require("./botconfig.json");
-const fs = require("fs");
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
 
 
-fs.readdir("./commands/", (err, files) => {
 
-  if(err) console.log(err);
-  let jsfile = files.filter(f => f.split(".").pop() === "js");
-  if(jsfile.length <= 0){
-    console.log("Couldn't find commands.");
-    return;
-  }
-  
-
-  jsfile.forEach((f, i) =>{
-    let props = require(`./commands/${f}`);
-    console.log(`${f} loaded!`);
-    if (props.help && props.help.name) {
-      bot.commands.set(props.help.name, props);
-    } else {
-      console.error(`file ${f} does not have .help or .help.name property!`);
-  };
-});
-})
-
-
-  bot.on("message", async message => {
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-    let prefix = botconfig.prefix
-    let messageArray = message.content.split(" ");
-    let args = message.content.slice(prefix.length).trim().split(/ +/g);
-    let cmd = args.shift().toLowerCase();
-    let commandfile;
-
-    if (bot.commands.has(cmd)) {
-      commandfile = bot.commands.get(cmd);
-  } else if (bot.aliases.has(cmd)) {
-    commandfile = bot.commands.get(bot.aliases.get(cmd));
-  }
-  
-      if (!message.content.startsWith(prefix)) return;
-
-          
-  try {
-    commandfile.run(bot, message, args);
-  
-  } catch (e) {
-  }}
-  )}});
+    }})
 
 
 // ---------------------------------- COMMANDS ABOVE ----------------------------------------------
