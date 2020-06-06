@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
 
   let embed5 = new Discord.MessageEmbed()
   .setColor("#00FF00")
-  .setDescription(`✅ You have payed ${user.user.username} ${args[1]} coins`);
+  .setDescription(`✅ You have paid ${user.user.username} ${args[1]} coins`);
 
   message.channel.send(embed5)
   db.add(`money_${message.guild.id}_${user.id}`, args[1])

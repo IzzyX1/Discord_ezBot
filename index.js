@@ -467,34 +467,32 @@ bot.on('message', message =>{
         case 'uwu':
             image(message, "cute anime girl");
         break;
-function image(message, search){
-        var options = {
-            url: "http://results.dogpile.com/serp?qc=images&q=" + search,
-            method: "GET",
-            headers: {
-                "Accept": "text/html",
-                "User-Agent": "Chrome"
-            }
-        };
-        request(options, function(error, response, responseBody) {
-            if (error) {
-                return;
-            }
-            $ = cheerio.load(responseBody);
-            var links = $(".image a.link");
-            var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
-            console.log(urls);
-            if (!urls.length) {
-                return;
-            }
-            // Send result
-            message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
-        })}
-// --------------------------------------- ECONOMY -----------------------------------
-
-
-
-    }})
+        function image(message, search){
+            var options = {
+                url: "http://results.dogpile.com/serp?qc=images&q=" + search,
+                method: "GET",
+                headers: {
+                    "Accept": "text/html",
+                    "User-Agent": "Chrome"
+                }
+            };
+            request(options, function(error, response, responseBody) {
+                if (error) {
+                    return;
+                }
+                $ = cheerio.load(responseBody);
+                var links = $(".image a.link");
+                var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
+                console.log(urls);
+                if (!urls.length) {
+                    return;
+                }
+                // Send result
+                const Discord = require("discord.js");
+                message.channel.send(new Discord.MessageEmbed().setImage( urls[Math.floor(Math.random() * urls.length)]));
+    
+            })}
+        }})
 
 
 // ---------------------------------- COMMANDS ABOVE ----------------------------------------------

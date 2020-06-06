@@ -35,8 +35,8 @@ module.exports.run = async (bot, message, args) => {
 
         if (author < 600) return message.channel.send(Embed2)
        
-        db.fetch(`sneakers_${message.guild.id}_${user.id}`)
-        db.add(`sneakers_${message.guild.id}_${user.id}`, 1)
+        db.fetch(`nikes_${message.guild.id}_${user.id}`)
+        db.add(`nikes_${message.guild.id}_${user.id}`, 1)
 
         let Embed3 = new Discord.MessageEmbed()
         .setColor("#00FF00")
