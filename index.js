@@ -253,7 +253,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .setDescription("**Moderation Commands:**\n\nBan Command: $ban <User> <Reason>\nKick Command: $kick <User> <Reason>\nAnti-Spam Command: $antispamhelp\nClear Command: $clear <number of messages>\n\n**Media Commands:**\n\nImage Commands: $imagehelp\nGIF Commands: $gifhelp\nRandom Features: $randomfeatures\nReaction Commands: $reactionshelp\n\n**Games Commands:**\n\nEconomy Commands: e$help\nMinesweeper Commands: $minesweeperhelp\n\n**Minecraft Command**\n\n $mchelp")
+            .setDescription("**Moderation Commands:**\n\nBan Command: $ban <User> <Reason>\nKick Command: $kick <User> <Reason>\nAnti-Spam Command: $antispamhelp\nClear Command: $clear <number of messages>\n\n**Media Commands:**\n\nImage Commands: $imagehelp\nGIF Commands: $gifhelp\nRandom Features: $randomfeatures\nReaction Commands: $reactionshelp\n\n**Games Commands:**\n\n8 Ball: $8ball <question>\n\nEconomy Commands: e$help\nMinesweeper Commands: $minesweeperhelp\n\n**Minecraft Command**\n\n $mchelp")
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
@@ -449,6 +449,18 @@ bot.on('message', message =>{
                 .addField('Max Players', reponse.maxPlayers)
                 message.channel.send(Embed);
     })
+        break;
+        case '8ball':
+            if(!args[2]) return message.reply("Please ask a full question!");
+            let replies = ["Yes.", "No.", "I don't know.", "Ask again later.", "My senses tell me yes.", "My senses tell me no.", "Why would you ask me such a question?", "I'm trying to think, but I don't have an answer for you."];
+            let result = Math.floor((Math.random() * replies.length));
+            let question = args.slice(1).join(" ");
+            let ballembed = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag)
+            .setColor("#000000")
+            .addField("🎱 Question: 🎱", question)
+            .addField("🎱 Answer: 🎱", replies[result]);
+            message.channel.send(ballembed);
         break;
 //----------------------------------------- COOM COMMANDS ------------------------------------
         let array = ["pokemon", "anime", "meme"];
