@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
 
     let embed = new Discord.MessageEmbed()
-    .setTitle("Economy Help Centre [Prefix: e$]")
+    .setTitle("Economy Help: [Prefix: e$]")
     .addField("Economy Commands", "`work` `beg` `balance` `profile` `withdraw` `deposit` `daily` `weekly` `store` `buy` `sell`")
     .addField("Gambling Commmands", "`roulette` `slots`")
     .addField("Store Information Command:", "`storeinfo [item]`")
