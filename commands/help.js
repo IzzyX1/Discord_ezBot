@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Economy Help Centre [Prefix: e$]")
     .addField("Economy Commands", "`work` `beg` `balance` `profile` `withdraw` `deposit` `daily` `weekly` `store` `buy` `sell`")
     .addField("Gambling Commmands", "`roulette` `slots`")
-    .addField("Economy Extra Commands", "`storeinfo [item]`")
+    .addField("Store Information Command:", "`storeinfo [item]`")
     .setColor("#00080")
     message.channel.send(embed)
 
