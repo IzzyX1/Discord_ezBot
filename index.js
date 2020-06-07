@@ -219,7 +219,7 @@ bot.on('message', message=>{
                     if(message.content === "$imagehelp"){
                         const embed = new Discord.MessageEmbed()
                         .setTitle('Image Commands Help:')
-                        .setDescription("**Commands:**\n\n$anime - Generates a normal anime picture.\n$uwu - Generates a Cute Girl Anime Picture\n$pokemon - Generates a Pokemon Picture.\n$meme - Generates a Dank meme from somewhere on the internet.")
+                        .setDescription("**Commands:**\n\n$anime - Generates a normal anime picture.\n$uwu - Generates a Cute Girl Anime Picture\n$pokemon - Generates a Pokemon Picture.\n$meme - Generates a Dank meme from somewhere on the internet.\n$neko - Generates a Cat Girl Picture.")
                         .addField('Support Server:', 'https://discord.gg/ac3KQu2')
                         .setColor(0xffff00)
                         .setThumbnail(message.author.avatarURL)
@@ -463,7 +463,7 @@ bot.on('message', message =>{
             message.channel.send(ballembed);
         break;
 //----------------------------------------- COOM COMMANDS ------------------------------------
-        let array = ["pokemon", "anime", "meme"];
+        let array = ["pokemon", "anime", "meme", "uwu", "neko"];
         if(array.includes(args[1])){
             image(message, args[1])
     }
@@ -478,6 +478,9 @@ bot.on('message', message =>{
         break;
         case 'uwu':
             image(message, "cute anime girl");
+        break;
+        case 'neko':
+            image(message, "neko");
         break;
         function image(message, search){
             var options = {
