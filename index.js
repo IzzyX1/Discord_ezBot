@@ -253,7 +253,7 @@ bot.on('message', message =>{
         case 'help':
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands Help:')
-            .setDescription("**Moderation Commands:**\n\nBan Command: $ban <User> <Reason>\nKick Command: $kick <User> <Reason>\nAnti-Spam Command: $antispamhelp\nClear Command: $clear <number of messages>\n\n**Media Commands:**\n\nImage Commands: $imagehelp\nGIF Commands: $gifhelp\nRandom Features: $randomfeatures\nReaction Commands: $reactionshelp\n\n**Games Commands:**\n\n8 Ball: $8ball <question>\n\nEconomy Commands: e$help\nMinesweeper Commands: $minesweeperhelp\n\n**Minecraft Command**\n\n $mchelp")
+            .setDescription("**Moderation Commands:**\n\nBan Command: $ban <User> <Reason>\nKick Command: $kick <User> <Reason>\nAnti-Spam Command: $antispamhelp\nClear Command: $clear <number of messages>\n\n**Media Commands:**\n\nImage Commands: $imagehelp\nGIF Commands: $gifhelp\nRandom Features: $randomfeatures\nReaction Commands: $reactionshelp\n\n**Games Commands:**\n\n8 Ball: $8ball <question>\nEconomy Commands: e$help\nMinesweeper Commands: $minesweeperhelp\n\n**Minecraft Command:**\n\n $mchelp")
             .addField('Support Server:', 'https://discord.gg/ac3KQu2')
             .setColor(0x03C4FF)
             .setThumbnail(message.author.avatarURL)
