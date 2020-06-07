@@ -37,20 +37,6 @@ bot.on("ready", () => {
     bot.user.setActivity(`In ${bot.guilds.cache.size} Servers | $help`, { type: 'WATCHING'});
   });
 
-  
-  bot.on("ready", () => {
-    var mysql = require('mysql');
-var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-
-connection.connect();
-connection.query('CREATE TABLE IF NOT EXISTS economy(guild_id TEXT, user_id TEXT, pocket TEXT, bank TEXT, VIP INT DEFAULT 0, sneakers INT DEFAULT 0, cars INT DEFAULT 0, mansions INT DEFAULT 0, jets INT DEFAULT 0, helicopters INT DEFAULT 0, biscuits INT DEFAULT 0, tacos INT DEFAULT 0);', function(err, rows, fields) {
-  if (err) throw err;
-  console.log('The solution is: ', rows[0].solution);
-connection.query("INSERT INTO economy(guild_id, user_id, pocket, bank) VALUES ('guildid', 'userid', '0', '0')")
-});
-connection.end();
-})
-  
   bot.on("guildCreate", guild => {
     // This event triggers when the bot joins a guild.
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
